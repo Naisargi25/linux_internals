@@ -14,12 +14,16 @@ int main()
    
    // At a time you can run only one lseek statement, you have to comment down other lseek statements
  
+   printf("set file pointer to 0th byte/character in the file: \n");
    lseek(fd,0,SEEK_SET); // To set file pointer to 0th byte/character in the file 
 
+   printf("set file pointer to 6th byte/character in the file: \n");
    lseek(fd,6,SEEK_SET); // To set file pointer to 6th byte/character in the file
 
+   printf("set file pointer to 6th byte before the end of file: \n");
    lseek(fd,-6,SEEK_END); // To find 6th byte before the end of file
 
+   printf("set file pointer to forward 7 bytes from current position \n");
    lseek(fd,7,SEEK_CUR); // To find forward 7 bytes from current position
 
    read(fd,read_buf,50);
