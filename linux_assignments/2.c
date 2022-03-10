@@ -18,7 +18,7 @@ int main()
 
    lseek(fd,6,SEEK_SET); // To set file pointer to 6th byte/character in the file
 
-   lseek(fd,-6,SEEK_END); // To find 3rd byte before the end of file
+   lseek(fd,-6,SEEK_END); // To find 6th byte before the end of file
 
    lseek(fd,7,SEEK_CUR); // To find forward 7 bytes from current position
 
