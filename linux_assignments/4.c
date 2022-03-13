@@ -15,7 +15,7 @@ int main()
    
    len = write(fd,write_buf,50);
 
-   printf("Return value from a file is: %d\n",len); // return fd of file
+   printf("Return value from a file is: %d\n",len);
 
    lseek(fd,6,SEEK_SET); // To set file pointer to 6th byte/character in the file
    read(fd,read_buf,len);
