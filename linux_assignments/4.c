@@ -19,7 +19,7 @@ int main()
 
    lseek(fd,6,SEEK_SET); // To set file pointer to 6th byte/character in the file
    read(fd,read_buf,len);
-   printf("The data from write buffer is: %s\n",read_buf);
+   printf("\nThe data from write buffer is: %s\n",read_buf);
    close(fd);
    return 0;
 }
