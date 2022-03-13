@@ -1,36 +1,34 @@
-#include<stdio.h>
-#include<fcntl.h>
-#include<sys/types.h>
-#include<sys/stat.h>
-#include<unistd.h>
-
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int main()
-{
-   int fd;
-   int len;
-   char read_buf[50];
-   fd = open("read.txt", O_CREAT | O_RDWR,0777);
-   
-   // At a time you can run only one lseek statement, you have to comment down other lseek statements
- 
-   printf("set file pointer to 0th byte/character in the file: \n");
-   lseek(fd,0,SEEK_SET); // To set file pointer to 0th byte/character in the file 
+{	
+   char buff[100]="Hello, how are you?";
+	char readfile[100];
+	
+	int f1;
 
-   printf("set file pointer to 6th byte/character in the file: \n");
-   lseek(fd,6,SEEK_SET); // To set file pointer to 6th byte/character in the file
+   //open a file called lseek.txt 
+	f1=open("lseek.txt",O_CREAT|O_RDWR,777);
 
-   printf("set file pointer to 6th byte before the end of file: \n");
-   lseek(fd,-6,SEEK_END); // To find 6th byte before the end of file
+	write(f1,buff,50);
 
-   printf("set file pointer to forward 7 bytes from current position \n");
-   lseek(fd,7,SEEK_CUR); // To find forward 7 bytes from current position
+   printf("File pointer set at start position of file\n");
+	lseek(f1,0,SEEK_SET);
+	read(f1,readfile,50);
+	printf("Data in file is: %s \n",readfile);
 
-   read(fd,read_buf,50);
-   printf("The data from write buffer is: %s\n",read_buf);
+	printf("\nFile pointer set at current position of file\n");
+	lseek(f1,-40,SEEK_CUR);
+	read(f1,readfile,50);
+	printf("Data in file is: %s \n",readfile);
 
-   //close fd
-   close(fd);
+	printf("\nFile pointer set at end position of file\n");
+	lseek(f1,-35,SEEK_END);
+	read(f1,readfile,50);
+	printf("Data in file is: %s \n",readfile);
 
+	close(f1);
    return 0;
 }
