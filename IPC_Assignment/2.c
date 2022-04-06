@@ -1,3 +1,7 @@
+/* Write a program that uses msgctl() and prints number of messages,number of bytes in
+message queue and also get Maximum number of bytes in queue for already existing message queue
+and also remove message queue at the end.*/
+
 #include <stdio.h>
 #include <string.h>
 #include <sys/ipc.h>
