@@ -1,3 +1,6 @@
+/*Write a program parent process writing to pipe and child reading toggled data from pipe,
+and also analyse the data flow order from write end to read end.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
